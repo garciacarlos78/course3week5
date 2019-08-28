@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Petagram</string>
+    <string name="petName">Tobi</string>
+    <string name="menu_contacto">Contacto</string>
+    <string name="menu_acerca_de">Acerca de</string>
+    <string name="acerca_de_title">Desarrollador</string>
+    <string name="acerca_de_name">Carlos García Romero</string>
+    <string name="acerca_de_correo">garciacarlos78@gmail.com</string>
+    <string name="acerca_de_linkedin">www.linkedin.com/in/garciacarlos78</string>
+    <string name="contacto_nombre">Nombre:</string>
+    <string name="contacto_nombre_hint">Escriba aquí su nombre</string>
+    <string name="contacto_correo">Dirección de correo:</string>
+    <string name="contacto_correo_hint">Escriba aquí su dirección de correo</string>
+    <string name="contacto_mensaje">Mensaje:</string>
+    <string name="contacto_mensaje_hint">Escriba aquí su mensaje</string>
+    <string name="contacto_title">Contacto</string>
+    <string name="contacto_button">Enviar comentario</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

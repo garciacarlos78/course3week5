@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activity.Contacto">
+
+    <include android:id="@+id/contactoActionBar"
+        layout="@layout/action_bar">
+    </include>
+
+    <TextView android:id="@+id/contactoTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="@string/contacto_title"
+        android:textSize="50sp"
+        android:textStyle="bold"/>
+
+    <TextView android:id="@+id/tvContactoNombre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        android:text="@string/contacto_nombre"
+        android:textSize="18sp"/>
+
+    <EditText android:id="@+id/etContactoNombre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        android:inputType="text"
+        android:textSize="18sp"
+        android:hint="@string/contacto_nombre_hint"
+        />
+
+    <TextView android:id="@+id/tvContactoCorreo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/contacto_correo"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        android:textSize="18sp"/>
+
+    <EditText android:id="@+id/etContactoCorreo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="@string/contacto_correo_hint"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        android:inputType="textEmailAddress"
+        android:textSize="18sp"/>
+
+    <TextView android:id="@+id/tvContactoComentario"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/contacto_mensaje"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        android:textSize="18sp"/>
+
+    <!-- TODO Hacer que este edit text incremente su altura en función
+           de lo que se vaya escribiendo, hombre por dios-->
+    <EditText android:id="@+id/etContactoComentario"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="@string/contacto_mensaje_hint"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        android:inputType="text"
+        android:textSize="18sp"/>
+
+    <Button
+        android:id="@+id/btComentario"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="@string/contacto_button"
+        android:textSize="18sp"
+        />
+
+</LinearLayout>
