@@ -6,15 +6,10 @@ import java.util.ArrayList;
 
 public interface DatabaseInterface {
 
-    public ArrayList<Mascota> getRated();
+    ArrayList<Mascota> getRated();
 
-    public void insert(Mascota mascota);
+    void insert (Mascota mascota);
 
-    public int getRating (int idMascota);
+    int getRating (int id);
 
-    ArrayList<Mascota> getRatedRowid();
-
-    void insertRowid(Mascota mascota);
-
-    int getRatingRowid(int id);
 }

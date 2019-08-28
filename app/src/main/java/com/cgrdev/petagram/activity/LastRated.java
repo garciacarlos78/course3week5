@@ -13,7 +13,6 @@ import com.cgrdev.petagram.pojo.Mascota;
 import com.cgrdev.petagram.presenter.RecyclerViewLastRatedPresenter;
 
 import java.util.ArrayList;
-import java.util.Collections;
 
 public class LastRated extends AppCompatActivity implements LastRatedInterface {
 
@@ -63,7 +62,7 @@ public class LastRated extends AppCompatActivity implements LastRatedInterface {
     @Override
     public MascotaAdaptador crearAdaptador(ArrayList<Mascota> mascotas) {
         //MascotaAdaptador mascotaAdaptador = new MascotaAdaptador(new Database(this).getRated(), false);
-        MascotaAdaptador mascotaAdaptador = new MascotaAdaptador(new Database(this).getRatedRowid(), false);
+        MascotaAdaptador mascotaAdaptador = new MascotaAdaptador(new Database(this).getRated(), false);
         return mascotaAdaptador;
     }
 

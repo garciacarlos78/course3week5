@@ -34,7 +34,7 @@ public class ConstructorMascotas {
         for (Mascota mascota : mascotas) {
 
             //mascota.setRating(db.getRating(mascota.getId()));
-            mascota.setRating(db.getRatingRowid(mascota.getId()));
+            mascota.setRating(db.getRating(mascota.getId()));
 
         }
 

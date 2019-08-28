@@ -53,35 +53,6 @@ public class Database extends SQLiteOpenHelper implements DatabaseInterface {
 
     @Override
     public ArrayList<Mascota> getRated() {
-        ArrayList<Mascota> mascotas = new ArrayList<>();
-
-        String query = "SELECT * FROM " + DatabaseConstants.TABLE_RATED_PETS + " ORDER BY " + DatabaseConstants.COL_4
-                + " DESC";
-
-        SQLiteDatabase db = this.getReadableDatabase();
-        Cursor registros = db.rawQuery(query, null);
-
-        // En caso de que haya más de 5 rateados cogemos únicamente los 5 últimos
-        for (int i = 0; i < 5 && registros.moveToNext(); i++) {
-
-            int id = registros.getInt(registros.getColumnIndex(DatabaseConstants.COL_0));
-            int pictureId = registros.getInt(registros.getColumnIndex(DatabaseConstants.COL_1));
-            String name = registros.getString(registros.getColumnIndex(DatabaseConstants.COL_2));
-            int rate = registros.getInt(registros.getColumnIndex(DatabaseConstants.COL_3));
-
-            Mascota mascota = new Mascota(id, pictureId, name);
-            mascota.setRating(rate);
-
-            mascotas.add(mascota);
-        }
-
-        db.close();
-
-        return mascotas;
-    }
-
-    @Override
-    public ArrayList<Mascota> getRatedRowid() {
 
         ArrayList<Mascota> mascotas = new ArrayList<>();
 
@@ -114,47 +85,6 @@ public class Database extends SQLiteOpenHelper implements DatabaseInterface {
 
         SQLiteDatabase db = this.getWritableDatabase();
 
-
-        // Si la mascota ya estaba en la tabla, la borramos para añadirla con el nuevo datestamp
-        db.delete(DatabaseConstants.TABLE_RATED_PETS, DatabaseConstants.COL_0 + "=?", new String[]{String.valueOf(mascota.getId())});
-
-        /*if (borrado == 1) Log.d("Mascotas: ", "Se ha borrado la mascotilla");
-        else {
-            Log.d("Mascotas: ", "No se ha borrado la mascotilla");
-*/
-/*
-        // Comprobamos si la mascota ya está en la tabla
-        String query = "SELECT * FROM " + DatabaseConstants.TABLE_RATED_PETS +
-                " WHERE " + DatabaseConstants.COL_0 + "=" + mascota.getId();
-
-        Cursor registros = db.rawQuery(query, null);
-
-        // Si lo está, eliminamos el registro y lo volvemos a añadir, para que se reordene
-        if (registros.getCount() == 1) {
-
-            return;
-        }
-*/
-
-        // Creamos el ContentValues para insertar la mascota
-        ContentValues contentValues = new ContentValues();
-        contentValues.put(DatabaseConstants.COL_0, mascota.getId());
-        contentValues.put(DatabaseConstants.COL_1, mascota.getPictureId());
-        contentValues.put(DatabaseConstants.COL_2, mascota.getName());
-        contentValues.put(DatabaseConstants.COL_3, mascota.getRating());
-        contentValues.put(DatabaseConstants.COL_4, new Date().getTime());
-
-        // Hacemos la inserción
-        db.insert(DatabaseConstants.TABLE_RATED_PETS, null, contentValues);
-
-        db.close();
-    }
-
-    @Override
-    public void insertRowid(Mascota mascota) {
-
-        SQLiteDatabase db = this.getWritableDatabase();
-
         // Si la mascota ya estaba en la tabla, la borramos para añadirla con el nuevo datestamp
         db.delete(DatabaseConstants.TABLE_MASCOTA, DatabaseConstants.COL_0 + "=?", new String[]{String.valueOf(mascota.getId())});
 
@@ -173,28 +103,6 @@ public class Database extends SQLiteOpenHelper implements DatabaseInterface {
 
     @Override
     public int getRating(int idMascota) {
-
-        SQLiteDatabase db = this.getReadableDatabase();
-
-        Cursor cursor = db.query(DatabaseConstants.TABLE_RATED_PETS, new String[]{DatabaseConstants.COL_3},
-                DatabaseConstants.COL_0 + " = ?", new String[]{String.valueOf(idMascota)}, null, null, null);
-
-        if (cursor.getCount() == 0) {
-            db.close();
-            return 0;
-        }
-
-        cursor.moveToFirst();
-
-        int rating = cursor.getInt(0);
-
-        db.close();
-
-        return rating;
-    }
-
-    @Override
-    public int getRatingRowid(int idMascota) {
 
         SQLiteDatabase db = this.getReadableDatabase();
 

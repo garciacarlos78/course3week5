@@ -3,7 +3,6 @@ package com.cgrdev.petagram.presenter;
 import android.content.Context;
 
 import com.cgrdev.petagram.activity.LastRatedInterface;
-import com.cgrdev.petagram.database.ConstructorMascotas;
 import com.cgrdev.petagram.database.Database;
 import com.cgrdev.petagram.pojo.Mascota;
 
@@ -25,7 +24,7 @@ public class RecyclerViewLastRatedPresenter implements RecyclerViewLastRatedPres
     @Override
     public void obtenerMascotasBBDD() {
         database = new Database(context);
-        mascotas = database.getRatedRowid();
+        mascotas = database.getRated();
         mostrarMascotasRV();
     }
 
