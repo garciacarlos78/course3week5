@@ -64,7 +64,7 @@ public class MascotaAdaptador extends RecyclerView.Adapter<MascotaAdaptador.Masc
                     int rate = mascotaHolder.getRating();
                     mascotaHolder.setRating(++rate);
                     mascotaViewHolder.tvRating.setText(String.valueOf(mascotaHolder.getRating()));
-                    MainActivity.getDatabase().insert(mascotaHolder);
+                    MainActivity.getDatabase().insertRowid(mascotaHolder);
                 }
             });
         }

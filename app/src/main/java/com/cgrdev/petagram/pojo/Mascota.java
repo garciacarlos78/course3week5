@@ -48,5 +48,10 @@ public class Mascota {
         this.rating = rating;
     }
 
+    @Override
+    public String toString() {
 
+        return "Petagram, Mascota: id: " + this.id;
+
+    }
 }

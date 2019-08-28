@@ -25,7 +25,7 @@ public class RecyclerViewLastRatedPresenter implements RecyclerViewLastRatedPres
     @Override
     public void obtenerMascotasBBDD() {
         database = new Database(context);
-        mascotas = database.getRated();
+        mascotas = database.getRatedRowid();
         mostrarMascotasRV();
     }
 

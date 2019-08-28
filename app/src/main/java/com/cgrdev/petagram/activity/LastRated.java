@@ -62,7 +62,8 @@ public class LastRated extends AppCompatActivity implements LastRatedInterface {
 
     @Override
     public MascotaAdaptador crearAdaptador(ArrayList<Mascota> mascotas) {
-        MascotaAdaptador mascotaAdaptador = new MascotaAdaptador(new Database(this).getRated(), false);
+        //MascotaAdaptador mascotaAdaptador = new MascotaAdaptador(new Database(this).getRated(), false);
+        MascotaAdaptador mascotaAdaptador = new MascotaAdaptador(new Database(this).getRatedRowid(), false);
         return mascotaAdaptador;
     }
 

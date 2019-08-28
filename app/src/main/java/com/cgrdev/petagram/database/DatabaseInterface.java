@@ -11,4 +11,10 @@ public interface DatabaseInterface {
     public void insert(Mascota mascota);
 
     public int getRating (int idMascota);
+
+    ArrayList<Mascota> getRatedRowid();
+
+    void insertRowid(Mascota mascota);
+
+    int getRatingRowid(int id);
 }

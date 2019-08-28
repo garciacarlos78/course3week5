@@ -18,11 +18,13 @@ import com.cgrdev.petagram.adapter.PageAdapter;
 import com.cgrdev.petagram.database.ConstructorMascotas;
 import com.cgrdev.petagram.database.ConstructorMiMascota;
 import com.cgrdev.petagram.database.Database;
+import com.cgrdev.petagram.database.DatabaseInterface;
 import com.cgrdev.petagram.fragment.MyPetFragment;
 import com.cgrdev.petagram.fragment.MainFragment;
 import com.cgrdev.petagram.pojo.Mascota;
 import com.cgrdev.petagram.pojo.RatedPicture;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity implements MainActivityInterface {
@@ -62,7 +64,63 @@ public class MainActivity extends AppCompatActivity implements MainActivityInter
             setSupportActionBar(toolbar);
         }
 
+        // Testeo de BBDD sin primary key, utilizando ROWID
+        //testingBBDD();
 
+
+    }
+
+    private void testingBBDD() {
+
+        // Generamos 10 mascotas al azahar
+        ArrayList<Mascota> mascotas = giveMe10Random();
+
+        // Ingresamos las 5 primeras en la BBDD
+        DatabaseInterface dbi = new Database(this);
+        for (int i=0; i<5; i++){
+            dbi.insertRowid(mascotas.get(i));
+        }
+
+        // Las recogemos y comprobamos en qué orden se devuelven
+        Log.d("Petagram: ", "Primera devolución tras la inserción de 0 a 4.");
+        ArrayList<Mascota> mascotasReturn = dbi.getRatedRowid();
+        for (Mascota mascota: mascotasReturn) {
+            Log.d("Petagram: ", "Mascota: " + mascota.toString());
+        }
+
+        // Agregamos otra con id superior a todas y volvemos a comprobar en qué orden se devuelven
+        Log.d("Petagram: ", "\nDevolución tras la inserción de id 7.");
+        dbi.insertRowid(mascotas.get(7));
+        mascotasReturn = dbi.getRatedRowid();
+        for (Mascota mascota: mascotasReturn) {
+            Log.d("Petagram: ", "Mascota: " + mascota.toString());
+        }
+
+        // Agregamos otra con id inferior y volvemos a comprobar
+        Log.d("Petagram: ", "\nDevolución tras la inserción de id 2.");
+        dbi.insertRowid(mascotas.get(2));
+        mascotasReturn = dbi.getRatedRowid();
+        for (Mascota mascota: mascotasReturn) {
+            Log.d("Petagram: ", "Mascota: " + mascota.toString());
+        }
+
+        Log.d("Petagram: ", "\nDevolución tras la inserción de id 4.");
+        dbi.insertRowid(mascotas.get(4));
+        mascotasReturn = dbi.getRatedRowid();
+        for (Mascota mascota: mascotasReturn) {
+            Log.d("Petagram: ", "Mascota: " + mascota.toString());
+        }
+    }
+
+    private ArrayList<Mascota> giveMe10Random() {
+
+        ArrayList<Mascota> mascotas = new ArrayList<>();
+
+        for (int i=0; i<10; i++) {
+            Mascota mascota = new Mascota(i, i+1, "Mascota_" + i);
+            mascotas.add(mascota);
+        }
+        return mascotas;
     }
 
     private ArrayList<Fragment> agregarFragments() {

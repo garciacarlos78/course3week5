@@ -7,6 +7,7 @@ public final class DatabaseConstants {
 
     // Añadimos la columna "date" para poder determinar el orden de rateados
     public static final String TABLE_RATED_PETS = "ratedPets";
+    public static final String TABLE_MASCOTA = "mascota";
     public static final String COL_0 = "id";
     public static final String COL_1 = "pictureId";
     public static final String COL_2 = "name";
