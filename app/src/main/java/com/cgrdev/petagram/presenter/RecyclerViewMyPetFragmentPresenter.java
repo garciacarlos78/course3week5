@@ -1,11 +1,10 @@
 package com.cgrdev.petagram.presenter;
 
 import android.content.Context;
-import android.util.Log;
 
-import com.cgrdev.petagram.activity.MainActivity;
-import com.cgrdev.petagram.database.ConstructorMiMascota;
-import com.cgrdev.petagram.fragment.MyPetFragmentInterface;
+import com.cgrdev.petagram.view.activity.MainActivity;
+import com.cgrdev.petagram.model.ConstructorMiMascota;
+import com.cgrdev.petagram.view.fragment.MyPetFragmentInterface;
 import com.cgrdev.petagram.pojo.RatedPicture;
 
 import java.util.ArrayList;
@@ -27,7 +26,6 @@ public class RecyclerViewMyPetFragmentPresenter implements RecyclerViewMyPetFrag
     public void obtenerMisMAscotasBBDD() {
         constructorMiMascota = new ConstructorMiMascota(context);
         ratedPictures = MainActivity.getRatedPictures();
-        // ratedPictures = constructorMiMascota.obtenerMiMascota().getRatedPictures();
         mostrarMisMascotasRV();
     }
 

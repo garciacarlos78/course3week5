@@ -13,35 +13,35 @@
         android:theme="@style/AppTheme">
 
         <activity
-            android:name=".activity.Contacto"
-            android:parentActivityName=".activity.MainActivity">
+            android:name=".view.activity.Contacto"
+            android:parentActivityName=".view.activity.MainActivity">
 
             <!-- Soporte para versiones 4.0 o inferior -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".activity.MainActivity" />
+                android:value=".view.activity.MainActivity" />
         </activity>
 
         <activity
-            android:name=".activity.AcercaDe"
-            android:parentActivityName=".activity.MainActivity">
+            android:name=".view.activity.AcercaDe"
+            android:parentActivityName=".view.activity.MainActivity">
 
             <!-- Soporte para versiones 4.0 o inferior -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".activity.MainActivity" />
+                android:value=".view.activity.MainActivity" />
         </activity>
 
         <activity
-            android:name=".activity.LastRated"
-            android:parentActivityName=".activity.MainActivity">
+            android:name=".view.activity.LastRated"
+            android:parentActivityName=".view.activity.MainActivity">
 
             <!-- Soporte para versiones 4.0 o inferior -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".activity.MainActivity" />
+                android:value=".view.activity.MainActivity" />
         </activity>
-        <activity android:name=".activity.MainActivity">
+        <activity android:name=".view.activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

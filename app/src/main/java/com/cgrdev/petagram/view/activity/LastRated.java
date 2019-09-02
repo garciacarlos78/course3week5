@@ -1,4 +1,4 @@
-package com.cgrdev.petagram.activity;
+package com.cgrdev.petagram.view.activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -8,7 +8,7 @@ import android.support.v7.widget.Toolbar;
 
 import com.cgrdev.petagram.R;
 import com.cgrdev.petagram.adapter.MascotaAdaptador;
-import com.cgrdev.petagram.database.Database;
+import com.cgrdev.petagram.model.Database;
 import com.cgrdev.petagram.pojo.Mascota;
 import com.cgrdev.petagram.presenter.RecyclerViewLastRatedPresenter;
 
@@ -35,22 +35,7 @@ public class LastRated extends AppCompatActivity implements LastRatedInterface {
 
         presenter = new RecyclerViewLastRatedPresenter(this, getBaseContext());
 
-        /*LinearLayoutManager llm = new LinearLayoutManager(this);
-        llm.setOrientation(LinearLayoutManager.VERTICAL);
-
-        rvMascotasFavoritas.setLayoutManager(llm);
-
-        // Como es una lista 'dummy', simplemente reordenamos al azar e inicializamos adaptador
-        Collections.shuffle(MainActivity.getMascotas());
-        inicializarAdaptador(MainActivity.getMascotas());*/
     }
-
-/*
-    private void inicializarAdaptador(ArrayList<Mascota> mascotas) {
-        MascotaAdaptador mascotaAdaptador = new MascotaAdaptador(mascotas, false);
-        rvMascotasFavoritas.setAdapter(mascotaAdaptador);
-    }
-*/
 
     @Override
     public void generarLinearLayoutVertical() {
@@ -61,7 +46,6 @@ public class LastRated extends AppCompatActivity implements LastRatedInterface {
 
     @Override
     public MascotaAdaptador crearAdaptador(ArrayList<Mascota> mascotas) {
-        //MascotaAdaptador mascotaAdaptador = new MascotaAdaptador(new Database(this).getRated(), false);
         MascotaAdaptador mascotaAdaptador = new MascotaAdaptador(new Database(this).getRated(), false);
         return mascotaAdaptador;
     }
@@ -69,10 +53,5 @@ public class LastRated extends AppCompatActivity implements LastRatedInterface {
     @Override
     public void inicializarAdaptadorRV(MascotaAdaptador adaptador) {
         rvMascotasFavoritas.setAdapter(adaptador);
-    }
-
-    @Override
-    public void inicializarMascotas() {
-
     }
 }

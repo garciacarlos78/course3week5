@@ -1,4 +1,4 @@
-package com.cgrdev.petagram.database;
+package com.cgrdev.petagram.model;
 
 import com.cgrdev.petagram.pojo.Mascota;
 

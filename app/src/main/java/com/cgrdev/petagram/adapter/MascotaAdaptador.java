@@ -11,7 +11,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.cgrdev.petagram.activity.MainActivity;
+import com.cgrdev.petagram.view.activity.MainActivity;
 import com.cgrdev.petagram.pojo.Mascota;
 import com.cgrdev.petagram.R;
 
@@ -40,8 +40,6 @@ public class MascotaAdaptador extends RecyclerView.Adapter<MascotaAdaptador.Masc
     public void onBindViewHolder(@NonNull final MascotaViewHolder mascotaViewHolder, int i) {
 
         final Mascota mascotaHolder = mascotas.get(i);
-
-
 
         mascotaViewHolder.imgMascota.setImageResource(mascotaHolder.getPictureId());
         mascotaViewHolder.tvName.setText(mascotaHolder.getName());

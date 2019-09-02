@@ -1,16 +1,15 @@
-package com.cgrdev.petagram.fragment;
+package com.cgrdev.petagram.view.activity;
 
 import com.cgrdev.petagram.adapter.MascotaAdaptador;
 import com.cgrdev.petagram.pojo.Mascota;
 
 import java.util.ArrayList;
 
-public interface MainFragmentInterface {
+public interface LastRatedInterface {
 
     void generarLinearLayoutVertical();
 
     MascotaAdaptador crearAdaptador(ArrayList<Mascota> mascotas);
 
     void inicializarAdaptadorRV(MascotaAdaptador adaptador);
-
 }

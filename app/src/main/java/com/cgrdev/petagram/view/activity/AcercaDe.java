@@ -1,4 +1,4 @@
-package com.cgrdev.petagram.activity;
+package com.cgrdev.petagram.view.activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;

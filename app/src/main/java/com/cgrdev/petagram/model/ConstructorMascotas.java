@@ -1,9 +1,9 @@
-package com.cgrdev.petagram.database;
+package com.cgrdev.petagram.model;
 
 import android.content.Context;
 
 import com.cgrdev.petagram.R;
-import com.cgrdev.petagram.activity.MainActivity;
+import com.cgrdev.petagram.view.activity.MainActivity;
 import com.cgrdev.petagram.pojo.Mascota;
 
 import java.util.ArrayList;
@@ -33,7 +33,6 @@ public class ConstructorMascotas {
         Database db = MainActivity.getDatabase();
         for (Mascota mascota : mascotas) {
 
-            //mascota.setRating(db.getRating(mascota.getId()));
             mascota.setRating(db.getRating(mascota.getId()));
 
         }

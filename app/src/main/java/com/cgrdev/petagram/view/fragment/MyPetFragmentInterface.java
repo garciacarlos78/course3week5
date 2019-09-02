@@ -1,4 +1,4 @@
-package com.cgrdev.petagram.fragment;
+package com.cgrdev.petagram.view.fragment;
 
 import com.cgrdev.petagram.adapter.MiMascotaAdapter;
 import com.cgrdev.petagram.pojo.RatedPicture;

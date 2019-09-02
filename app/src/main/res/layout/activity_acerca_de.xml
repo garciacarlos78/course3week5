@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".activity.AcercaDe" >
+    tools:context=".view.activity.AcercaDe" >
 
     <include android:id="@+id/aboutActionBar"
         layout="@layout/action_bar">

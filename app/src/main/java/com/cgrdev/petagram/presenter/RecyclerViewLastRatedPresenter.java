@@ -2,8 +2,8 @@ package com.cgrdev.petagram.presenter;
 
 import android.content.Context;
 
-import com.cgrdev.petagram.activity.LastRatedInterface;
-import com.cgrdev.petagram.database.Database;
+import com.cgrdev.petagram.view.activity.LastRatedInterface;
+import com.cgrdev.petagram.model.Database;
 import com.cgrdev.petagram.pojo.Mascota;
 
 import java.util.ArrayList;

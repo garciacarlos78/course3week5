@@ -1,16 +1,14 @@
-package com.cgrdev.petagram.database;
+package com.cgrdev.petagram.model;
 
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.util.Log;
 
 import com.cgrdev.petagram.pojo.Mascota;
 
 import java.util.ArrayList;
-import java.util.Date;
 
 public class Database extends SQLiteOpenHelper implements DatabaseInterface {
 
@@ -23,14 +21,6 @@ public class Database extends SQLiteOpenHelper implements DatabaseInterface {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-
-        /*String queryCreatePetTable = "CREATE TABLE " + DatabaseConstants.TABLE_RATED_PETS + "("
-                + DatabaseConstants.COL_0 + " INTEGER PRIMARY KEY, "
-                + DatabaseConstants.COL_1 + " INTEGER, "
-                + DatabaseConstants.COL_2 + " TEXT, "
-                + DatabaseConstants.COL_3 + " INTEGER, "
-                + DatabaseConstants.COL_4 + " INTEGER"
-                + ")";*/
 
         // Creamos tabla mascota con idéntidos atributos a pojo Mascota
         String queryCreatePetTable = "CREATE TABLE " + DatabaseConstants.TABLE_MASCOTA + "("
@@ -46,7 +36,7 @@ public class Database extends SQLiteOpenHelper implements DatabaseInterface {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        //db.execSQL("DROP TABLE IF EXISTS " + DatabaseConstants.TABLE_RATED_PETS);
+
         db.execSQL("DROP TABLE IF EXISTS " + DatabaseConstants.TABLE_MASCOTA);
         onCreate(db);
     }

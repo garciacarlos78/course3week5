@@ -1,4 +1,4 @@
-package com.cgrdev.petagram.database;
+package com.cgrdev.petagram.model;
 
 import android.content.Context;
 import android.content.res.Resources;

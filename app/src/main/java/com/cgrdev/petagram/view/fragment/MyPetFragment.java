@@ -1,20 +1,17 @@
-package com.cgrdev.petagram.fragment;
+package com.cgrdev.petagram.view.fragment;
 
 
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.cgrdev.petagram.R;
-import com.cgrdev.petagram.activity.MainActivity;
+import com.cgrdev.petagram.view.activity.MainActivity;
 import com.cgrdev.petagram.adapter.MiMascotaAdapter;
-import com.cgrdev.petagram.database.ConstructorMiMascota;
 import com.cgrdev.petagram.pojo.RatedPicture;
 import com.cgrdev.petagram.presenter.RecyclerViewMyPetFragmentPresenter;
 
@@ -35,13 +32,6 @@ public class MyPetFragment extends Fragment implements MyPetFragmentInterface {
     }
 
 
-/*
-    public void setMascotasRated(ArrayList<RatedPicture> mascotasRated) {
-        this.mascotasRated = mascotasRated;
-    }
-*/
-
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -54,14 +44,6 @@ public class MyPetFragment extends Fragment implements MyPetFragmentInterface {
         return v;
     }
 
-/*
-    private void inicializaAdaptador() {
-
-        MiMascotaAdapter miMascotaAdapter = new MiMascotaAdapter(mascotasRated);
-        rvMiMascota.setAdapter(miMascotaAdapter);
-    }
-*/
-
     @Override
     public void generateGridLayout() {
 
@@ -72,7 +54,7 @@ public class MyPetFragment extends Fragment implements MyPetFragmentInterface {
 
     @Override
     public MiMascotaAdapter crearAdaptador(ArrayList<RatedPicture> ratedPictures) {
-        //MiMascotaAdapter mascotaAdapter = new MiMascotaAdapter(new ConstructorMiMascota(getContext()).obtenerMiMascota().getRatedPictures());
+
         MiMascotaAdapter mascotaAdapter = new MiMascotaAdapter(ratedPictures);
         return mascotaAdapter;
     }

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".activity.LastRated">
+    tools:context=".view.activity.LastRated">
 
     <!--<include android:id="@+id/ultimasFavoritasActivityActionBar"-->
     <!--layout="@layout/action_bar"></include>-->

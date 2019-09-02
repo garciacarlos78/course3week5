@@ -1,4 +1,4 @@
-package com.cgrdev.petagram.activity;
+package com.cgrdev.petagram.view.activity;
 
 import android.content.Intent;
 import android.support.design.widget.TabLayout;
@@ -14,12 +14,11 @@ import android.view.MenuItem;
 import com.cgrdev.petagram.R;
 import com.cgrdev.petagram.adapter.MascotaAdaptador;
 import com.cgrdev.petagram.adapter.PageAdapter;
-import com.cgrdev.petagram.database.ConstructorMascotas;
-import com.cgrdev.petagram.database.ConstructorMiMascota;
-import com.cgrdev.petagram.database.Database;
-import com.cgrdev.petagram.database.DatabaseInterface;
-import com.cgrdev.petagram.fragment.MyPetFragment;
-import com.cgrdev.petagram.fragment.MainFragment;
+import com.cgrdev.petagram.model.ConstructorMascotas;
+import com.cgrdev.petagram.model.ConstructorMiMascota;
+import com.cgrdev.petagram.model.Database;
+import com.cgrdev.petagram.view.fragment.MyPetFragment;
+import com.cgrdev.petagram.view.fragment.MainFragment;
 import com.cgrdev.petagram.pojo.Mascota;
 import com.cgrdev.petagram.pojo.RatedPicture;
 
@@ -39,13 +38,10 @@ public class MainActivity extends AppCompatActivity implements MainActivityInter
     private ViewPager viewPager;
     private static Database database = null;
     private static ArrayList<RatedPicture> ratedPictures = null;
-    static {
-        Log.d("Mascotas: ", "MainActivity: static.");
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        Log.d("Mascotas: ", "MainActivity: onCreate.");
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -61,68 +57,10 @@ public class MainActivity extends AppCompatActivity implements MainActivityInter
         if (toolbar != null) {
             setSupportActionBar(toolbar);
         }
-
-        // Testeo de BBDD sin primary key, utilizando ROWID
-        //testingBBDD();
-
-
-    }
-
-    private void testingBBDD() {
-
-        // Generamos 10 mascotas al azahar
-        ArrayList<Mascota> mascotas = giveMe10Random();
-
-        // Ingresamos las 5 primeras en la BBDD
-        DatabaseInterface dbi = new Database(this);
-        for (int i=0; i<5; i++){
-            dbi.insert(mascotas.get(i));
-        }
-
-        // Las recogemos y comprobamos en qué orden se devuelven
-        Log.d("Petagram: ", "Primera devolución tras la inserción de 0 a 4.");
-        ArrayList<Mascota> mascotasReturn = dbi.getRated();
-        for (Mascota mascota: mascotasReturn) {
-            Log.d("Petagram: ", "Mascota: " + mascota.toString());
-        }
-
-        // Agregamos otra con id superior a todas y volvemos a comprobar en qué orden se devuelven
-        Log.d("Petagram: ", "\nDevolución tras la inserción de id 7.");
-        dbi.insert(mascotas.get(7));
-        mascotasReturn = dbi.getRated();
-        for (Mascota mascota: mascotasReturn) {
-            Log.d("Petagram: ", "Mascota: " + mascota.toString());
-        }
-
-        // Agregamos otra con id inferior y volvemos a comprobar
-        Log.d("Petagram: ", "\nDevolución tras la inserción de id 2.");
-        dbi.insert(mascotas.get(2));
-        mascotasReturn = dbi.getRated();
-        for (Mascota mascota: mascotasReturn) {
-            Log.d("Petagram: ", "Mascota: " + mascota.toString());
-        }
-
-        Log.d("Petagram: ", "\nDevolución tras la inserción de id 4.");
-        dbi.insert(mascotas.get(4));
-        mascotasReturn = dbi.getRated();
-        for (Mascota mascota: mascotasReturn) {
-            Log.d("Petagram: ", "Mascota: " + mascota.toString());
-        }
-    }
-
-    private ArrayList<Mascota> giveMe10Random() {
-
-        ArrayList<Mascota> mascotas = new ArrayList<>();
-
-        for (int i=0; i<10; i++) {
-            Mascota mascota = new Mascota(i, i+1, "Mascota_" + i);
-            mascotas.add(mascota);
-        }
-        return mascotas;
     }
 
     private ArrayList<Fragment> agregarFragments() {
-        Log.d("Mascotas: ", "MainActivity: agregarFragments");
+
         ArrayList<Fragment> fragments = new ArrayList<>();
 
         fragments.add(new MainFragment());
@@ -131,7 +69,7 @@ public class MainActivity extends AppCompatActivity implements MainActivityInter
     }
 
     private void setupViewPager () {
-        Log.d("Mascotas: ", "MainActivity: setupViewPager");
+
         viewPager.setAdapter(new PageAdapter(getSupportFragmentManager(), agregarFragments()));
         tabLayout.setupWithViewPager(viewPager);
         tabLayout.getTabAt(0).setIcon(R.drawable.home);
@@ -140,7 +78,7 @@ public class MainActivity extends AppCompatActivity implements MainActivityInter
 
     @Override
     public boolean onCreateOptionsMenu (Menu menu) {
-        Log.d("Mascotas: ", "MainActivity: onCreateOptionsMenu");
+
         getMenuInflater().inflate(R.menu.menu_main, menu);
         getMenuInflater().inflate(R.menu.menu_opciones, menu);
         return true;
@@ -148,11 +86,10 @@ public class MainActivity extends AppCompatActivity implements MainActivityInter
 
     @Override
     public boolean onOptionsItemSelected (MenuItem item) {
-        Log.d("Mascotas: ", "MainActivity: onOptionsItemSelected");
 
         int id = item.getItemId();
 
-        // Switch para controlar el menú presionado
+        // Switch para controlar la opción de menú presionada
         switch (id) {
             case R.id.btFavoritos:
                 // Creamos intent
@@ -174,12 +111,6 @@ public class MainActivity extends AppCompatActivity implements MainActivityInter
         return super.onOptionsItemSelected(item);
      }
 
-
-    @Override
-    public void generarLinearLayoutVertical() {
-        Log.d("Mascotas: ", "MainActivity: generarLinearLayoutVertical");
-    }
-
     @Override
     public MascotaAdaptador crearAdaptador(ArrayList<Mascota> mascotas) {
 
@@ -190,12 +121,6 @@ public class MainActivity extends AppCompatActivity implements MainActivityInter
     @Override
     public void inicializarAdaptadorRV(MascotaAdaptador adaptador) {
         Log.d("Mascotas: ", "MainActivity: inicializarAdaptadorRV");
-
-    }
-
-    @Override
-    public void inicializarMascotas() {
-        Log.d("Mascotas: ", "MainActivity: inicializarMascotaas.");
 
     }
 }
