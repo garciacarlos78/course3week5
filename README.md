@@ -19,3 +19,10 @@ El motivo es no perder los rates del resto de mascotas. Si hay más de 5 mascota
 Se ha aprovechado la característica ROWID para ordenar: cuando una tabla no tiene primary key, SQLite asigna automáticamente una columna de uso interno llamada ROWID por la que se puede ordenar, de forma que las últimas 5 mascotas con "like" serán las de ROWID más alto.
 
 # Capturas de pantalla
+
+## Database
+![database](Pantallazos/database.png)
+## Main Activity: Lista de mascotas - Mascota propia - Menu
+![lista_mascotas](Pantallazos/main_activity)![own_pet](Pantallazos/main_activity_own_pet.png)![Menu](Pantallazos/menu.png)
+## Last rated - About - Contact
+![last rated](Pantallazos/last_rated.png)![about](Pantallazos/about.png)![contact](Pantallazos/contact.png)
